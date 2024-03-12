@@ -1,0 +1,29 @@
+
+
+#control{
+    position: absolute;
+   
+}
+
+
+#N{
+    position: absolute;
+    right:300px;
+    bottom: 500px;  
+}
+
+#E{
+    position: absolute;
+    right:250px;
+    bottom: 450px;   
+}
+#S{
+    position: absolute;
+    right:300px;
+    bottom: 400px;   
+}
+#W{
+    position: absolute;
+    right:350px;
+    bottom: 450px;
+}
