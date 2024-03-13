@@ -14,7 +14,6 @@ class currentLocation {
             
             console.log(this.yAxis)
             this.yAxis -= 1
-
             console.log('south')
             console.log(this.yAxis)
             console.log(movement)  
@@ -32,8 +31,6 @@ class currentLocation {
             console.log("east")
             this.xAxis += 1
         } 
-
-
         }
     }
 

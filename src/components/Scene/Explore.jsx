@@ -11,21 +11,10 @@ const Explore = () => {
     
     
     const handleClick = (direction, value) => {
-        event.preventDefault();
-        
-        
-        
-
+       
         myLocation.move(direction, value)
         setMyLocation(myLocation)
-        setCount(count + 1)
-     
-
-        
-        
-        
-        
-        
+        setCount(count + 1)  
     }
 
     
@@ -38,16 +27,16 @@ const Explore = () => {
         <div id="control">
         <h1>Explore </h1>
         <p> your location ({myLocation.xAxis}) ({myLocation.yAxis}) </p>
-        <button id="N" value={1} onClick={() => handleClick('N', 1)}>
+        <button id="N" onClick={() => handleClick('N', 1)}>
             north
         </button>
-        <button id="E" value={1}onClick={() => handleClick('E', -1)}>
+        <button id="E" onClick={() => handleClick('E', -1)}>
             east
         </button>
-        <button id="S" value={-1}onClick={() => handleClick('S', -1)}>
+        <button id="S" onClick={() => handleClick('S', -1)}>
             south
         </button>
-        <button id="W" value={-1}onClick={() => handleClick('W', -1)}>
+        <button id="W" onClick={() => handleClick('W', -1)}>
             west
         </button>
     </div>
