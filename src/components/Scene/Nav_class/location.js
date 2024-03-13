@@ -4,6 +4,7 @@ class currentLocation {
     constructor(x, y){
         this.xAxis = 0
         this.yAxis = 0
+        this.currentArea = null
     }
     updateLocation(xAxis, yAxis){
         this.xAxis = xAxis
@@ -31,6 +32,14 @@ class currentLocation {
             console.log("east")
             this.xAxis += 1
         } 
+        }
+        loadArea(area){
+            if(area.xAxis === this.xAxis && this.yAxis === area.yAxis){
+                this.currentArea = area
+                console.log("new area")
+                console.log(area.name)
+                console.log()
+            }
         }
     }
 

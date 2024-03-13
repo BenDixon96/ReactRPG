@@ -1,19 +1,26 @@
 import './Explore.css'
 import currentLocation from './Nav_class/location';
 import React, { useEffect, useState } from 'react';
-
+import LoadArea from './LoadArea';
+import levelOneAreas from './Nav_class/level-1-area/levelOneAreas';
 
 
 const Explore = () => {
    
     const [count, setCount] = useState(0)
     const [myLocation, setMyLocation] = useState(new currentLocation(0, 0))
+    const [area, setArea] = useState(null)
     
     
     const handleClick = (direction, value) => {
        
         myLocation.move(direction, value)
+        levelOneAreas.forEach((area) => myLocation.loadArea(area));
+        
+        
+        
         setMyLocation(myLocation)
+        setArea(myLocation.currentArea)
         setCount(count + 1)  
     }
 
@@ -39,6 +46,11 @@ const Explore = () => {
         <button id="W" onClick={() => handleClick('W', -1)}>
             west
         </button>
+        {myLocation.loadedArea &&(
+            <div>{myLocation.loadedArea.name}</div>
+        )}
+        
+        <LoadArea x={myLocation.xAxis} y={myLocation.yAxis} myLocation={area}/>
     </div>
 
     ) 
