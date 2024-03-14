@@ -37,6 +37,7 @@ class currentLocation {
         loadArea(area){
             if(area.xAxis === this.xAxis && this.yAxis === area.yAxis){
                 this.currentArea = area
+                area.explored = true
                 console.log("new area")
                 console.log(area.name)
                 console.log()

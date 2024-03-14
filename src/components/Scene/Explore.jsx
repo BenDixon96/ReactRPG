@@ -37,7 +37,8 @@ const Explore = () => {
         if (canMove.includes(true)){
             setMyLocation(myLocation)
             setArea(myLocation.currentArea)
-            setCount(count + 1)  
+            setCount(count + 1) 
+            console.log(levelOneAreas) 
 
         }else{
             myLocation.updateLocation(lastArea[0], lastArea[1])

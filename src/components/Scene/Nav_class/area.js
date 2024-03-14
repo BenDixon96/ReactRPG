@@ -4,6 +4,7 @@ class Area{
         this.xAxis = x
         this.yAxis = y
         this.name = name
+        this.explored = false
 
     }
 }

@@ -1,7 +1,7 @@
 import Area from '../area'
 
 const lumberMill = new Area(
-    1,
+    -1,
     0,
     'lumber mill')
 
