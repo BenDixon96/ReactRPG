@@ -11,7 +11,19 @@ const Explore = () => {
     const [myLocation, setMyLocation] = useState(new currentLocation(0, 0))
     const [area, setArea] = useState(null)
     
+
+    const handleChange = () => {
+   
+    levelOneAreas.map((x) => myLocation.loadArea(x))
+    setArea(myLocation.currentArea)
+
+
+    }
+    useEffect(() => {
+        handleChange(); // Call handleChange on page load
+    }, []); 
     
+
     const handleClick = (direction, value) => {
        
         myLocation.move(direction, value)
