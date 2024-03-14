@@ -15,7 +15,8 @@ const Explore = () => {
     const handleClick = (direction, value) => {
        
         myLocation.move(direction, value)
-        levelOneAreas.forEach((area) => myLocation.loadArea(area));
+        levelOneAreas.map((x) => myLocation.loadArea(x))
+
         
         
         
@@ -46,8 +47,8 @@ const Explore = () => {
         <button id="W" onClick={() => handleClick('W', -1)}>
             west
         </button>
-        {myLocation.loadedArea &&(
-            <div>{myLocation.loadedArea.name}</div>
+        {area &&(
+            <div>{area.name}</div>
         )}
         
         <LoadArea x={myLocation.xAxis} y={myLocation.yAxis} myLocation={area}/>
