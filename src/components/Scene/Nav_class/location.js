@@ -11,6 +11,7 @@ class currentLocation {
         this.yAxis = yAxis
     }
     move(direction, movement){
+        
         if(direction === "S"){
             
             console.log(this.yAxis)
@@ -34,11 +35,25 @@ class currentLocation {
         } 
         }
         loadArea(area){
-            if(area.xAxis === this.xAxis && this.yAxis === area.yAxis){
+            if(area.xAxis === this.xAxis && this.yAxis === area.yAxis && this.canLoad(area)){
                 this.currentArea = area
                 console.log("new area")
                 console.log(area.name)
                 console.log()
+            }
+            else{
+                return "path blocked"
+            }
+        }
+        canLoad(area){
+            if(area.xAxis === this.xAxis && this.yAxis === area.yAxis){
+                return true
+                
+                
+            
+                
+            }else{
+                return false 
             }
         }
     }

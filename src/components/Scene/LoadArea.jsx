@@ -4,8 +4,7 @@ import levelOneAreas from './Nav_class/level-1-area/levelOneAreas';
 
 
 const LoadArea = (props) => {
-    const [myLocation, setMyLocation] = useState(props.myLocation)
-    
+    const [area, setArea] = useState(props.loadedArea)
     
     const [x, setX] = useState(props.x)
 
@@ -18,8 +17,8 @@ const LoadArea = (props) => {
     return(
         <div>
         <h1>Area  stateX{x} propsY{props.y} </h1>
-        {myLocation &&(
-            <div>{myLocation.name}</div>
+        {props.loadedArea &&(
+            <div>{props.loadedArea.name}</div>
         )}
 
       

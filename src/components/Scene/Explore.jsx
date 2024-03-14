@@ -20,7 +20,7 @@ const Explore = () => {
 
     }
     useEffect(() => {
-        handleChange(); // Call handleChange on page load
+        handleChange();
     }, []); 
     
 
@@ -59,11 +59,9 @@ const Explore = () => {
         <button id="W" onClick={() => handleClick('W', -1)}>
             west
         </button>
-        {area &&(
-            <div>{area.name}</div>
-        )}
+     
         
-        <LoadArea x={myLocation.xAxis} y={myLocation.yAxis} myLocation={area}/>
+        <LoadArea x={myLocation.xAxis} y={myLocation.yAxis} loadedArea={area}/>
     </div>
 
     ) 
