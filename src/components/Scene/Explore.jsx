@@ -5,6 +5,7 @@ import LoadArea from './LoadArea';
 import levelOneAreas from './Nav_class/level-1-area/levelOneAreas';
 
 
+
 const Explore = () => {
    
     const [count, setCount] = useState(0)
@@ -25,9 +26,23 @@ const Explore = () => {
     
 
     const handleClick = (direction, value) => {
+
+
+        const lastArea = [myLocation.xAxis, myLocation.yAxis]
        
         myLocation.move(direction, value)
         levelOneAreas.map((x) => myLocation.loadArea(x))
+        const canMove = levelOneAreas.map((x) => myLocation.loadArea(x))
+        console.log("can Move is:", canMove)
+        if (canMove.includes(true)){
+            setMyLocation(myLocation)
+            setArea(myLocation.currentArea)
+            setCount(count + 1)  
+
+        }else{
+            myLocation.updateLocation(lastArea[0], lastArea[1])
+            console.log("not that way")
+        }
 
         
         

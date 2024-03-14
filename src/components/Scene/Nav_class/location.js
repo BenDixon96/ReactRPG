@@ -35,27 +35,18 @@ class currentLocation {
         } 
         }
         loadArea(area){
-            if(area.xAxis === this.xAxis && this.yAxis === area.yAxis && this.canLoad(area)){
+            if(area.xAxis === this.xAxis && this.yAxis === area.yAxis){
                 this.currentArea = area
                 console.log("new area")
                 console.log(area.name)
                 console.log()
+                return true
             }
             else{
-                return "path blocked"
+                return false
             }
         }
-        canLoad(area){
-            if(area.xAxis === this.xAxis && this.yAxis === area.yAxis){
-                return true
-                
-                
-            
-                
-            }else{
-                return false 
-            }
-        }
+       
     }
 
 
