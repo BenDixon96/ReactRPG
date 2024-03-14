@@ -11,6 +11,7 @@ const Explore = () => {
     const [count, setCount] = useState(0)
     const [myLocation, setMyLocation] = useState(new currentLocation(0, 0))
     const [area, setArea] = useState(null)
+    const [blockedPath, setBlockedPath] = useState(null)
     
 
     const handleChange = () => {
@@ -39,10 +40,12 @@ const Explore = () => {
             setArea(myLocation.currentArea)
             setCount(count + 1) 
             console.log(levelOneAreas) 
+            setBlockedPath(null)
 
         }else{
             myLocation.updateLocation(lastArea[0], lastArea[1])
             console.log("not that way")
+            setBlockedPath("your path is blocked")
         }
 
         
@@ -75,6 +78,9 @@ const Explore = () => {
         <button id="W" onClick={() => handleClick('W', -1)}>
             west
         </button>
+        {blockedPath &&(
+            <div>{blockedPath}</div>
+        )}
      
         
         <LoadArea x={myLocation.xAxis} y={myLocation.yAxis} loadedArea={area}/>
