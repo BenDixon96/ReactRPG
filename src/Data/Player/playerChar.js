@@ -9,10 +9,11 @@ class playerChar {
         this.armour = null
         this.level = 1
         this.xp = 0
-        
-        
+        this.maxHp = 14
+        this.hp = 14
 
     }
+
     pickUp(item){
         this.inventory.push(item)
     }
@@ -38,8 +39,12 @@ class playerChar {
             const remainderXP = this.xp - requiredXP
             this.level += 1
             this.xp = remainderXP
+            this.maxHp = this.getMaxHp()
             
         }
+        }
+        getMaxHp(){
+            return this.level * 4 + 10
     }
 
 }
