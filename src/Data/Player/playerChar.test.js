@@ -1,10 +1,11 @@
 
+const playerChar = require('../Player/playerChar')
 
 
-
-describe('add', () => {
-    it('adds 2 and 2', () => {
-      // TODO: write test
-      expect( 1 + 1).toBe(2)
+describe('initalise a class', () => {
+    it('checks if class is intalised', () => {
+      const testPlayer = new playerChar("Bob")
+      expect(testPlayer).toBeDefined();
+      expect(testPlayer.name).toBe("Bob")
     });
   });
