@@ -16,6 +16,7 @@ describe('initalise a class', () => {
       expect(testPlayer.maxHp).toBe(14)
       expect(testPlayer.getMaxHp()).toEqual(14)
       expect(testPlayer.hp).toBe(14)
+      expect(testPlayer.dead).toBe(false)
       
     });
   });
@@ -79,5 +80,43 @@ describe('initalise a class', () => {
       expect(testPlayer.xp).toBe(10)
       expect(testPlayer.tillLevel()).toEqual(190)
       expect(testPlayer.maxHp).toBe(18)
+    });
+  });
+
+  describe('Take damage', () => {
+    it('should reduce hp', () => {
+      const testPlayer = new playerChar("Bob")
+      testPlayer.takeDamage(10)
+      expect(testPlayer.hp).toBe(4)
+    });
+  });
+  describe('Heal', () => {
+    it('should increce hp up to max hp', () => {
+      const testPlayer = new playerChar("Bob")
+      testPlayer.takeDamage(10)
+      testPlayer.heal(8)
+      expect(testPlayer.hp).toBe(12)
+      testPlayer.heal(8)
+      expect(testPlayer.hp).toBe(14)
+
+    });
+  });
+  describe('taking damage and healing with diff levels', () => {
+    it('should heal to max', () => {
+      const testPlayer = new playerChar("Bob")
+      testPlayer.takeDamage(10)
+      testPlayer.takeDamage(10)
+      testPlayer.takeDamage(10)
+      expect(testPlayer.dead).toBe(true)
+    });
+  });
+
+  describe('taking damage till death', () => {
+    it('should heal to max', () => {
+      const testPlayer = new playerChar("Bob")
+      testPlayer.addXp(110)
+      expect(testPlayer.hp).toBe(14)
+      testPlayer.heal(8)
+      expect(testPlayer.hp).toBe(18)
     });
   });

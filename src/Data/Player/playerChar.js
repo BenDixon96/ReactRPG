@@ -11,6 +11,7 @@ class playerChar {
         this.xp = 0
         this.maxHp = 14
         this.hp = 14
+        this.dead = false
 
     }
 
@@ -45,6 +46,18 @@ class playerChar {
         }
         getMaxHp(){
             return this.level * 4 + 10
+    }
+    takeDamage(damage){
+        this.hp -= damage
+        if(this.hp <= 0){
+            this.dead = true
+        }
+    }
+    heal(healingPoints){
+        this.hp += healingPoints
+        if(this.hp > this.getMaxHp()){
+            this.hp = this.getMaxHp()
+        }
     }
 
 }
