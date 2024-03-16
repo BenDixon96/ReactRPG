@@ -1,7 +1,7 @@
-
+import Explore from "./Scene/Explore";
 
 const Welcome = () => {
-    return <h1>Welcome </h1>;
+    return <Explore/>;
   };
   
   export default Welcome;
