@@ -67,7 +67,8 @@ describe('initalise a class', () => {
   describe('Level UP!', () => {
     it('Leveling up', () => {
       const testPlayer = new playerChar("Bob")
-      testPlayer.addXp(100)
+      testPlayer.addXp(110)
+      expect(testPlayer.xp).toBe(10)
       expect(testPlayer.level).toBe(2)
       
     });
@@ -80,6 +81,17 @@ describe('initalise a class', () => {
       expect(testPlayer.xp).toBe(10)
       expect(testPlayer.tillLevel()).toEqual(190)
       expect(testPlayer.maxHp).toBe(18)
+
+
+      testPlayer.addXp(110)
+      expect(testPlayer.xp).toBe(120)
+      expect(testPlayer.level).toBe(2)
+      expect(testPlayer.tillLevel()).toEqual(80)
+      testPlayer.addXp(380)
+      expect(testPlayer.level).toBe(4)
+      
+
+
     });
   });
 

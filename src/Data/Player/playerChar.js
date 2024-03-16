@@ -31,16 +31,18 @@ class playerChar {
     }
     addXp(xp){
         this.xp += xp
+
         this.levelUp()
     }
     levelUp(){
-        const requiredXP = this.level * 100
-        if(this.xp >= this.tillLevel()){
-            
-            const remainderXP = this.xp - requiredXP
+        
+        if(this.xp >= this.level * 100){
+            while(this.xp >= this.level * 100){
+            this.xp -= this.level * 100
             this.level += 1
-            this.xp = remainderXP
             this.maxHp = this.getMaxHp()
+            }
+            
             
         }
         }
