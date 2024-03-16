@@ -66,5 +66,10 @@ class playerChar {
 
 
 
+// use for tests
 
-module.exports = playerChar
+//module.exports = playerChar;
+
+
+
+export default playerChar

@@ -89,7 +89,7 @@ describe('initalise a class', () => {
       expect(testPlayer.tillLevel()).toEqual(80)
       testPlayer.addXp(380)
       expect(testPlayer.level).toBe(4)
-      
+      expect(testPlayer.tillLevel()).toEqual(300)
 
 
     });
