@@ -12,6 +12,11 @@ const Welcome = () => {
         setPlayer(deserializedPlayer);
     }
 }, []);
+    const handleClick = () =>{
+      localStorage.removeItem("player")
+      location.reload()
+
+    }
 
 
 
@@ -21,6 +26,7 @@ const Welcome = () => {
 
     
     <div>
+      <button onClick={handleClick}>quit game</button>
       {!player &&(
         <CharacterCreate/>
 
@@ -34,7 +40,7 @@ const Welcome = () => {
       </div>
 
     )}
-    
+
     
 
     </div>

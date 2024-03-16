@@ -19,6 +19,7 @@ const CharacterCreate = () =>{
         //console.log(playerCharater)
         window.localStorage.setItem("player", JSON.stringify(playerCharater))
         console.log(window.localStorage.getItem("player"))
+        location.reload()
       }
 
     return(
