@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import levelOneAreas from './Nav_class/level-1-area/levelOneAreas';
+import levelOneAreas from '../../Data/Nav_class/level-1-area/levelOneAreas'
 
 
 const LoadArea = (props) => {
