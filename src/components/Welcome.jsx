@@ -1,13 +1,14 @@
 import Explore from "./Scene/Explore";
 import React, { useEffect, useState } from 'react';
 import CharacterCreate from "./character-create";
+import Inventory from "./Inventory";
 const Welcome = () => {
   const [player, setPlayer] = useState(window.localStorage.getItem("player"))
 
   useEffect(() => {
     const storedPlayer = window.localStorage.getItem("player");
     if (storedPlayer) {
-        // Deserialize the stored data
+       
         const deserializedPlayer = JSON.parse(storedPlayer);
         setPlayer(deserializedPlayer);
     }
@@ -28,7 +29,10 @@ const Welcome = () => {
     <div>
       <button onClick={handleClick}>quit game</button>
       {!player &&(
+        <div>
         <CharacterCreate/>
+        
+        </div>
 
       )}
        
@@ -36,10 +40,12 @@ const Welcome = () => {
     {player &&(
       <div>
       <h1>name {player.name}</h1>
+      <Inventory/>
       <Explore/>
       </div>
 
     )}
+    
 
     
 

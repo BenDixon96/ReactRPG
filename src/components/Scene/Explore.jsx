@@ -81,6 +81,7 @@ const Explore = () => {
         {blockedPath &&(
             <div>{blockedPath}</div>
         )}
+        
      
         
         <LoadArea x={myLocation.xAxis} y={myLocation.yAxis} loadedArea={area}/>
