@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 
-const Inventory = () =>{
+const Inventory = (props) =>{
     const [showInventory, setShowInventory] = useState(false)
+    
  
 const showInv = () =>{
     if(showInventory === false){
         setShowInventory(true)
+        console.log(props.player)
    
 
     }
@@ -26,8 +28,8 @@ const showInv = () =>{
         <div>
             <button onClick={showInv}> Inventory</button>
 
-            {showInventory && 
-                <h2>stuff</h2>
+            {showInventory && props.player.name && 
+                <h2>{props.player.name}s stuff </h2>
             }
             
 

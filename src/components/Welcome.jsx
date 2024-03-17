@@ -40,7 +40,7 @@ const Welcome = () => {
     {player &&(
       <div>
       <h1>name {player.name}</h1>
-      <Inventory/>
+      <Inventory player={player}/>
       <Explore/>
       </div>
 
