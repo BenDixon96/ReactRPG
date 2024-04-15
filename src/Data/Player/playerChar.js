@@ -67,6 +67,20 @@ class playerChar {
         const data = new PlayerData(this.name, this.charClass, this.inventory, this.weapon, this.armour, this.level, this.xp, this.maxHp, this.hp, this.dead)
         return data
     }
+    loadData(data){
+        this.name = data.name
+        this.charClass = data.charClass
+        this.inventory = data.inventory
+        this.weapon = data.weapon
+        this.armour = data.armour
+        this.level = data.level
+        this.xp = data.xp
+        this.maxHp = data.maxHp
+        this.hp = data.hp
+        this.dead = data.dead
+
+
+    }
 
 }
 

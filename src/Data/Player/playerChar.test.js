@@ -141,4 +141,22 @@ describe('initalise a class', () => {
 
       
     })
+
+
+
+  });
+  describe("loads data object", () =>{
+    it('loads data to new class', () =>{
+      const testPlayer = new playerChar("Bob")
+      testPlayer.pickUp("stuff")
+      const testData = testPlayer.toData()
+
+      
+      const testPlayer2 = new playerChar("name")
+      testPlayer2.loadData(testData) 
+      expect(testPlayer2.name).toBe("Bob")
+      expect(testPlayer.inventory).toStrictEqual(["stuff"])
+
+      
+    })
   });
