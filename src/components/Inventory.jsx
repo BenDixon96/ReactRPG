@@ -3,12 +3,27 @@ import React, { useEffect, useState } from 'react';
 
 const Inventory = (props) =>{
     const [showInventory, setShowInventory] = useState(false)
+    const [playerData, setPlayerData] = useState(window.localStorage.getItem("player"))
+    useEffect(() => {
+        const storedPlayer = window.localStorage.getItem("player");
+        
+        if (storedPlayer) {
+           
+            const deserializedPlayer = JSON.parse(storedPlayer);
+            setPlayerData(deserializedPlayer);
+        }
+    }, []);
     
  
 const showInv = () =>{
     if(showInventory === false){
         setShowInventory(true)
-        console.log(props.player.inventory)
+        const storedPlayer = window.localStorage.getItem("player");
+        const deserializedPlayer = JSON.parse(storedPlayer);
+        setPlayerData(deserializedPlayer);
+        
+
+        console.log(playerData.inventory)
 
    
 
@@ -30,7 +45,7 @@ const showInv = () =>{
             <button onClick={showInv}> Inventory</button>
 
             {showInventory && props.player.name && 
-                <div>{props.player.name}s stuff {props.player.inventory.map((item) => <h1>{item}</h1>)}</div>
+                <div>{props.player.name}s stuff {playerData.inventory.map((item) => <p>{item}</p>)}</div>
                 
                 
                 

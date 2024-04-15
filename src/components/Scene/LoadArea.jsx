@@ -30,6 +30,7 @@ const LoadArea = (props) => {
         player.pickUp("test")
         const modPlayerData = player.toData()
         window.localStorage.setItem("player", JSON.stringify(player))
+        //location.reload()
 
 
 
