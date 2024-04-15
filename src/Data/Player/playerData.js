@@ -18,5 +18,6 @@ class PlayerData{
         
 
 }
-module.exports = PlayerData
+//module.exports = PlayerData
 
+export default PlayerData

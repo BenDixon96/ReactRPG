@@ -1,5 +1,5 @@
-const PlayerData = require("./playerData")
-
+//const PlayerData = require("./playerData")
+import PlayerData from "./playerData"
 
 
 class playerChar {
@@ -88,8 +88,8 @@ class playerChar {
 
 // use for tests
 
-module.exports = playerChar;
+//module.exports = playerChar;
 
 
 
-//export default playerChar
+export default playerChar
