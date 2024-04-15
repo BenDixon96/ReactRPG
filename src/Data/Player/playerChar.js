@@ -1,3 +1,5 @@
+const PlayerData = require("./playerData")
+
 
 
 class playerChar {
@@ -61,6 +63,10 @@ class playerChar {
             this.hp = this.getMaxHp()
         }
     }
+    toData(){
+        const data = new PlayerData(this.name, this.charClass, this.inventory, this.weapon, this.armour, this.level, this.xp, this.maxHp, this.hp, this.dead)
+        return data
+    }
 
 }
 
@@ -68,8 +74,8 @@ class playerChar {
 
 // use for tests
 
-//module.exports = playerChar;
+module.exports = playerChar;
 
 
 
-export default playerChar
+//export default playerChar

@@ -89,7 +89,7 @@ describe('initalise a class', () => {
       expect(testPlayer.tillLevel()).toEqual(80)
       testPlayer.addXp(380)
       expect(testPlayer.level).toBe(4)
-      expect(testPlayer.tillLevel()).toEqual(300)
+      expect(testPlayer.tillLevel()).toEqual(400)
 
 
     });
@@ -131,4 +131,14 @@ describe('initalise a class', () => {
       testPlayer.heal(8)
       expect(testPlayer.hp).toBe(18)
     });
+  });
+
+  describe("new data object", () =>{
+    it('creates a new player data object', () =>{
+      const testPlayer = new playerChar("Bob")
+      const testData = testPlayer.toData()
+      expect(testData.name).toBe("Bob")
+
+      
+    })
   });
