@@ -7,6 +7,7 @@ const Welcome = () => {
 
   useEffect(() => {
     const storedPlayer = window.localStorage.getItem("player");
+    
     if (storedPlayer) {
        
         const deserializedPlayer = JSON.parse(storedPlayer);

@@ -15,12 +15,9 @@ const CharacterCreate = () =>{
       const handleSubmit = (event) =>{
         event.preventDefault()
         const playerCharater = new playerChar(playerName)
-        const playerData = playerCharater.toData()
-
-        setPlayer(playerData)
-
+        setPlayer(playerCharater)
         //console.log(playerCharater)
-        window.localStorage.setItem("player", JSON.stringify(playerData))
+        window.localStorage.setItem("player", JSON.stringify(playerCharater))
         console.log(window.localStorage.getItem("player"))
         location.reload()
       }

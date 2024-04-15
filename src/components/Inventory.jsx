@@ -8,7 +8,8 @@ const Inventory = (props) =>{
 const showInv = () =>{
     if(showInventory === false){
         setShowInventory(true)
-        console.log(props.player)
+        console.log(props.player.inventory)
+
    
 
     }
@@ -29,7 +30,10 @@ const showInv = () =>{
             <button onClick={showInv}> Inventory</button>
 
             {showInventory && props.player.name && 
-                <h2>{props.player.name}s stuff </h2>
+                <div>{props.player.name}s stuff {props.player.inventory.map((item) => <h1>{item}</h1>)}</div>
+                
+                
+                
             }
             
 
