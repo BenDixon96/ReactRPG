@@ -23,14 +23,12 @@ const LoadArea = (props) => {
         
         const player = new playerChar(playerData.name)
         player.loadData(playerData)
-        console.log("player", player)
-        console.log("storedPlayer", playerData)
-        console.log("storedPlayer inventor", playerData.inventory)
+        console.log("area", props.loadedArea)
+        
 
         player.pickUp("test")
         const modPlayerData = player.toData()
         window.localStorage.setItem("player", JSON.stringify(player))
-        //location.reload()
 
 
 
