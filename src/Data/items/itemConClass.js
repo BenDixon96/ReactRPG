@@ -8,5 +8,5 @@ class ConsumableItem{
     }
 }
 
-module.exports = ConsumableItem
-//export default ConsumableItem
+//module.exports = ConsumableItem
+export default ConsumableItem
