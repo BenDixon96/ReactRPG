@@ -44,6 +44,7 @@ const Explore = () => {
             setCount(count + 1) 
             console.log(levelOneAreas) 
             setBlockedPath(null)
+            console.log(myLocation.currentArea.items)
 
         }else{
             myLocation.updateLocation(lastArea[0], lastArea[1])
