@@ -12,6 +12,7 @@ const Explore = () => {
     const [myLocation, setMyLocation] = useState(new currentLocation(0, 0))
     const [area, setArea] = useState(null)
     const [blockedPath, setBlockedPath] = useState(null)
+    const [areaItems, setAreaItems] = useState(null)
 
 
     
@@ -45,8 +46,20 @@ const Explore = () => {
             console.log(levelOneAreas) 
             setBlockedPath(null)
             console.log(myLocation.currentArea.items)
+            if(area.items){
+                if(area.items.length > 0){
+                    setAreaItems(area.items)
+                    
+                    console.log(areaItems)
+    
+                }
+    
 
-        }else{
+            }
+           
+        }
+       
+        else{
             myLocation.updateLocation(lastArea[0], lastArea[1])
             console.log("not that way")
             setBlockedPath("your path is blocked")
@@ -88,7 +101,7 @@ const Explore = () => {
         
      
         
-        <LoadArea x={myLocation.xAxis} y={myLocation.yAxis} loadedArea={area}/>
+        <LoadArea x={myLocation.xAxis} y={myLocation.yAxis} loadedArea={area} areaItems={areaItems}/>
     </div>
 
     ) 
