@@ -8,6 +8,10 @@ class Area{
         this.items = items
 
     }
+    pickUpItem(id){
+        const newArray = this.items.filter(item =>item.id !== id)
+        this.items = newArray
+    }
 }
 
 //export default Area
