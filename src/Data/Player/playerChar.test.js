@@ -1,6 +1,6 @@
 
 const playerChar = require('../Player/playerChar')
-
+const ConsumableItem = require('../items/itemConClass')
 
 describe('initalise a class', () => {
     it('checks if class is intalised', () => {

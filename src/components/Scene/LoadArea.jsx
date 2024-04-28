@@ -50,6 +50,10 @@ const LoadArea = (props) => {
             <div>{props.loadedArea.name}</div>
             
         )}
+        {props.loadedArea.items &&(
+            <div>{props.loadedArea.items[0].name}</div>
+            
+        )}
         <button onClick={handleClick}>{item} </button>
         <h1>{playerData.name}</h1>
 
