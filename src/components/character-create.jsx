@@ -13,7 +13,6 @@ const CharacterCreate = () =>{
        
       }
       const handleSubmit = (event) =>{
-        event.preventDefault()
         const playerCharater = new playerChar(playerName)
         setPlayer(playerCharater)
         //console.log(playerCharater)
