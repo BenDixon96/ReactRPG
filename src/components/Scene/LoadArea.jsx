@@ -23,12 +23,13 @@ const LoadArea = (props) => {
            
             const deserializedPlayer = JSON.parse(storedPlayer);
             console.log(deserializedPlayer.inventory)
+
             const itemIds = deserializedPlayer.inventory.map(item => item.id)
             setInventoryItemIds(itemIds)
-            console.log(inventoryItemIds)
+
+            
 
              if(props.loadedArea?.items){
-             console.log(props.loadedArea.items)
 
               
             const itemFilter = props.loadedArea.items.filter(item => !itemIds.includes(item.id))
@@ -36,10 +37,10 @@ const LoadArea = (props) => {
            
 
 
-             }
-             else if(!props.loadedArea.items){
+             }else{
               setAreaItems(null)
              }
+             
             
              setArea(props.loadedArea);
 
