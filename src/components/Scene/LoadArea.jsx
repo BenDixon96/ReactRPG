@@ -5,7 +5,7 @@ import playerChar from '../../Data/Player/playerChar';
 
 
 const LoadArea = (props) => {
-    const [area, setArea] = useState(props.loadedArea)
+    const [area, setArea] = useState(null)
     const [playerData, setPlayerData] = useState(window.localStorage.getItem("player"))
     const [areaItems, setAreaItems] = useState(null)
     const [count, setCount] = useState(0)
@@ -18,7 +18,6 @@ const LoadArea = (props) => {
 
         
         
-        setArea(props.loadedArea);
 
         if (storedPlayer) {
            
@@ -28,16 +27,19 @@ const LoadArea = (props) => {
             setInventoryItemIds(itemIds)
             console.log(inventoryItemIds)
 
-             if(area?.items){
-             console.log(area.items)
+             if(props.loadedArea?.items){
+             console.log(props.loadedArea.items)
 
               
-            const itemFilter = area.items.filter(item => !itemIds.includes(item.id))
+            const itemFilter = props.loadedArea.items.filter(item => !itemIds.includes(item.id))
             setAreaItems(itemFilter)
            
 
+
              }
             
+             setArea(props.loadedArea);
+
             
 
 
