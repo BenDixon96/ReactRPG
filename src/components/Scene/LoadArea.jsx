@@ -7,21 +7,43 @@ import playerChar from '../../Data/Player/playerChar';
 const LoadArea = (props) => {
     const [area, setArea] = useState(props.loadedArea)
     const [playerData, setPlayerData] = useState(window.localStorage.getItem("player"))
-    const [areaItems, setAreaItems] = useState(props.areaItems)
+    const [areaItems, setAreaItems] = useState(null)
     const [count, setCount] = useState(0)
+    const [inventoryItemIds, setInventoryItemIds] = useState(null)
+
     
     
     useEffect(() => {
         const storedPlayer = window.localStorage.getItem("player");
+
         
         
-        
+        setArea(props.loadedArea);
+
         if (storedPlayer) {
            
             const deserializedPlayer = JSON.parse(storedPlayer);
+            console.log(deserializedPlayer.inventory)
+            const itemIds = deserializedPlayer.inventory.map(item => item.id)
+            setInventoryItemIds(itemIds)
+            console.log(inventoryItemIds)
+
+             if(area?.items){
+             console.log(area.items)
+
+              
+            const itemFilter = area.items.filter(item => !itemIds.includes(item.id))
+            setAreaItems(itemFilter)
+           
+
+             }
+            
+            
+
+
+
             setPlayerData(deserializedPlayer);
         }
-        setArea(props.loadedArea);
        
     }, [props.loadedArea]);
     
@@ -50,6 +72,7 @@ const LoadArea = (props) => {
         
 
         setArea(newArea)
+        window.location.reload()
         
 
 
@@ -76,9 +99,9 @@ const LoadArea = (props) => {
           )}
       
           {/* Conditional rendering for loadedArea.items */}
-          {area && area.items && area.items.length > 0 && (
+          {area && areaItems && areaItems.length > 0 && (
             <div>
-                {area.items.map(item => <button onClick={() => handleClick(item)} key={item.id}>{item.name}</button>)}
+                {areaItems.map(item =>  <button onClick={() => handleClick(item)} key={item.id}>{item.name}</button>)}
                 </div>
           )}
       

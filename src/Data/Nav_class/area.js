@@ -6,6 +6,7 @@ class Area{
         this.name = name
         this.explored = false
         this.items = items
+        //this.isLooted = False
 
     }
     pickUpItem(id){
