@@ -37,6 +37,9 @@ const LoadArea = (props) => {
 
 
              }
+             else if(!props.loadedArea.items){
+              setAreaItems(null)
+             }
             
              setArea(props.loadedArea);
 
