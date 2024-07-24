@@ -45,7 +45,7 @@ const showInv = () =>{
             <button onClick={showInv}> Inventory</button>
 
             {showInventory && props.player.name && 
-                <div>{props.player.name}s stuff {playerData.inventory.map((item) => <p>{item.name}</p>)}</div>
+                <div>{props.player.name}s stuff {playerData.inventory.map((item) => <p key={item.id}>{item.name}</p>)}</div>
                 
                 
                 
