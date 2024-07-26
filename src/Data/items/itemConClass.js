@@ -1,9 +1,10 @@
 
 class ConsumableItem{
-    constructor(id, name, effect){
+    constructor(id, typeId, name, amount){
         this.id = id
         this.name = name
-        this.effect = effect
+        this.typeId = typeId
+        this.amount = amount
 
     }
 }
