@@ -1,7 +1,7 @@
-const Area = require('./area')
-const ConsumableItem = require('../items/itemConClass')
-
-
+// const Area = require('./area')
+// const ConsumableItem = require('../items/itemConClass')
+import Area from './area'
+import ConsumableItem from '../items/itemConClass'
 describe('creates area class', () =>{
     it('checks that class is intalised without a  item', () =>{
         const testArea = new Area(0, 0, "test")

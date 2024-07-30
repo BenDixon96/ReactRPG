@@ -1,6 +1,8 @@
 
-const playerChar = require('../Player/playerChar')
-const ConsumableItem = require('../items/itemConClass')
+// const playerChar = require('../Player/playerChar')
+// const ConsumableItem = require('../items/itemConClass')
+import playerChar from '../Player/playerChar';
+import ConsumableItem from '../items/itemConClass';
 
 describe('initalise a class', () => {
     it('checks if class is intalised', () => {
