@@ -9,11 +9,29 @@ class Area{
         //this.isLooted = False
 
     }
-    pickUpItem(id){
-        const newArray = this.items.filter(item =>item.id !== id)
-        this.items = newArray
+    pickUpItem(pickUpItem){
+        const names = this.items.map(item => item.name)
+        console.log(this.items)
+        if(!names.includes(pickUpItem.name)){
+            //const newArray = this.items.filter(item =>item.id !== pickUpItem.id)
+            this.items.push(pickUpItem)
+
+
+            
+            
+
+        }else{
+            this.items.forEach(item => {
+                if(item.name === pickUpItem.name){
+                    item.amount += 1;
+                }
+                
+            });
+        }
+       
+        
     }
 }
 
-export default Area
-//module.exports = Area
+//export default Area
+module.exports = Area

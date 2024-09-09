@@ -29,8 +29,8 @@ describe('creates area class', () =>{
 })
 describe('tests pickUp Function', () =>{
     it('tests that item is removed from area' , () =>{
-        const testItem1 = new ConsumableItem(1, 1, 'testItem1', 0)
-        const testItem2 = new ConsumableItem(2, 1, 'testItem2', 0)
+        const testItem1 = new ConsumableItem(1, 1, 'testItem1', 1)
+        const testItem2 = new ConsumableItem(2, 2, 'testItem2', 1)
         const testArea = new Area(0, 0, "test", [testItem1, testItem2])
         expect(testArea).toBeDefined()
         expect(testArea.xAxis).toBe(0)
@@ -39,8 +39,12 @@ describe('tests pickUp Function', () =>{
         expect(testArea.items[0]).toBeDefined()
         expect(testArea.items[0].name).toBe("testItem1")
         expect(testArea.items.length).toBe(2)
-        testArea.pickUpItem(1)
-        expect(testArea.items.length).toBe(1)
+        testArea.pickUpItem(testItem1)
+        testArea.pickUpItem(testItem2)
+
+        expect(testArea.items.length).toBe(2)
+        expect(testArea.items[0].amount).toBe(2)
+
 
          
 
