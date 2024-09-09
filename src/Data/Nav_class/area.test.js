@@ -15,7 +15,7 @@ describe('creates area class', () =>{
 })
 describe('creates area class', () =>{
     it('checks that class is intalised with an  item', () =>{
-        const testItem = new ConsumableItem(1, 'testItem', 0)
+        const testItem = new ConsumableItem(1, 1, 'testItem', 0)
         const testArea = new Area(0, 0, "test", [testItem])
         expect(testArea).toBeDefined()
         expect(testArea.xAxis).toBe(0)
@@ -29,8 +29,8 @@ describe('creates area class', () =>{
 })
 describe('tests pickUp Function', () =>{
     it('tests that item is removed from area' , () =>{
-        const testItem1 = new ConsumableItem(1, 'testItem1', 0)
-        const testItem2 = new ConsumableItem(2, 'testItem2', 0)
+        const testItem1 = new ConsumableItem(1, 1, 'testItem1', 0)
+        const testItem2 = new ConsumableItem(2, 1, 'testItem2', 0)
         const testArea = new Area(0, 0, "test", [testItem1, testItem2])
         expect(testArea).toBeDefined()
         expect(testArea.xAxis).toBe(0)
