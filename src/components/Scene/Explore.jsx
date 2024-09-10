@@ -2,7 +2,7 @@ import './Explore.css'
 import currentLocation from '../../Data/Nav_class/location';
 import React, { useEffect, useState } from 'react';
 import LoadArea from './LoadArea';
-import levelOneAreas from '../../Data/Nav_class/level-1-area/levelOneAreas'
+import Area from '../../Data/Nav_class/area';
 
 
 
@@ -13,19 +13,32 @@ const Explore = () => {
     const [area, setArea] = useState(null)
     const [blockedPath, setBlockedPath] = useState(null)
     const [areaItems, setAreaItems] = useState(null)
+    const [levelAreas, setLevelAreas] = useState(null)
+
+    
 
 
     
 
     const handleChange = () => {
+
+
    
-    levelOneAreas.map((x) => myLocation.loadArea(x))
-    setArea(myLocation.currentArea)
+    
     
 
 
     }
     useEffect(() => {
+        const storedAreas = window.localStorage.getItem("areas");
+        if(storedAreas){
+            const deserializedAreas = JSON.parse(storedAreas);
+            console.log("stored Area in explore", deserializedAreas[0]);
+            const levelAreas = deserializedAreas.map(area => new Area(area.id, area.xAxis, area.yAxis, area.name, area.items))
+            setLevelAreas(levelAreas)
+            levelAreas.map((x) => myLocation.loadArea(x))
+            setArea(myLocation.currentArea)
+        }
         handleChange();
     }, []); 
     
@@ -36,14 +49,14 @@ const Explore = () => {
         const lastArea = [myLocation.xAxis, myLocation.yAxis]
        
         myLocation.move(direction, value)
-        levelOneAreas.map((x) => myLocation.loadArea(x))
-        const canMove = levelOneAreas.map((x) => myLocation.loadArea(x))
+        levelAreas.map((x) => myLocation.loadArea(x))
+        const canMove = levelAreas.map((x) => myLocation.loadArea(x))
         console.log("can Move is:", canMove)
         if (canMove.includes(true)){
             setMyLocation(myLocation)
             setArea(myLocation.currentArea)
             setCount(count + 1) 
-            console.log(levelOneAreas) 
+            console.log(levelAreas) 
             setBlockedPath(null)
             console.log(myLocation.currentArea.items)
             if(area.items){
@@ -82,6 +95,7 @@ const Explore = () => {
     return(
         <div id="control">
         <h1>Explore </h1>
+      
         <p> your location ({myLocation.xAxis}) ({myLocation.yAxis}) </p>
         <button id="N" onClick={() => handleClick('N', 1)}>
             north
