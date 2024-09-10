@@ -1,6 +1,7 @@
 
 class Area{
-    constructor(x, y, name, items = null){
+    constructor(id, x, y, name, items = null){
+        this.id = id
         this.xAxis = x
         this.yAxis = y
         this.name = name
