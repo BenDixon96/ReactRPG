@@ -33,5 +33,5 @@ class Area{
     }
 }
 
-//export default Area
-module.exports = Area
+export default Area
+//module.exports = Area
