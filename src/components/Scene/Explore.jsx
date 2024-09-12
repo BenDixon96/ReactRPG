@@ -33,7 +33,7 @@ const Explore = () => {
         const storedAreas = window.localStorage.getItem("areas");
         if(storedAreas){
             const deserializedAreas = JSON.parse(storedAreas);
-            console.log("stored Area in explore", deserializedAreas[0]);
+            
             const levelAreas = deserializedAreas.map(area => new Area(area.id, area.xAxis, area.yAxis, area.name, area.items))
             setLevelAreas(levelAreas)
             levelAreas.map((x) => myLocation.loadArea(x))
@@ -51,19 +51,19 @@ const Explore = () => {
         myLocation.move(direction, value)
         levelAreas.map((x) => myLocation.loadArea(x))
         const canMove = levelAreas.map((x) => myLocation.loadArea(x))
-        console.log("can Move is:", canMove)
+     
         if (canMove.includes(true)){
             setMyLocation(myLocation)
             setArea(myLocation.currentArea)
             setCount(count + 1) 
-            console.log(levelAreas) 
+           
             setBlockedPath(null)
-            console.log(myLocation.currentArea.items)
+            
             if(area.items){
                 if(area.items.length > 0){
                     setAreaItems(area.items)
                     
-                    console.log(areaItems)
+                   
     
                 }
     
