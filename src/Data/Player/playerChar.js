@@ -1,5 +1,6 @@
 //const PlayerData = require("./playerData")
 import PlayerData from "./playerData"
+import ConsumableItem from "../items/itemConClass"
 
 
 class playerChar {
@@ -18,7 +19,25 @@ class playerChar {
     }
 
     pickUp(item){
-        this.inventory.push(item)
+        const itemNames = this.inventory.map(item => item.name)
+        if(itemNames.includes(item.name)){
+            this.inventory.forEach(charItem => {
+                if(item.name === charItem.name){
+                    charItem.amount += 1
+                    console.log("item ammount", item.amount)
+                }
+                
+            });
+
+        }else{
+            const newItem = new ConsumableItem(item.id, item.typeId, item.name, 1)
+            
+
+            this.inventory.push(newItem)
+
+        }
+
+        
     }
     equipWeapon(weapon){
         this.weapon = weapon
