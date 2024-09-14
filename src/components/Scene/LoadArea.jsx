@@ -95,10 +95,6 @@ const LoadArea = (props) => {
         
         newAreasData.push(newArea)
         window.localStorage.setItem("areas", JSON.stringify(newAreasData))
-        
-
-        
-
         setArea(newArea)
         setAreaItems(newArea.items)
       

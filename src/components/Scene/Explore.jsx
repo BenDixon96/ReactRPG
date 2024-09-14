@@ -15,20 +15,6 @@ const Explore = () => {
     const [areaItems, setAreaItems] = useState(null)
     const [levelAreas, setLevelAreas] = useState(null)
 
-    
-
-
-    
-
-    const handleChange = () => {
-
-
-   
-    
-    
-
-
-    }
     useEffect(() => {
         const storedAreas = window.localStorage.getItem("areas");
         if(storedAreas){
@@ -39,7 +25,7 @@ const Explore = () => {
             levelAreas.map((x) => myLocation.loadArea(x))
             setArea(myLocation.currentArea)
         }
-        handleChange();
+       
     }, []); 
     
 
@@ -56,9 +42,7 @@ const Explore = () => {
             setMyLocation(myLocation)
             setArea(myLocation.currentArea)
             setCount(count + 1) 
-           
             setBlockedPath(null)
-            
             if(area.items){
                 if(area.items.length > 0){
                     setAreaItems(area.items)
@@ -76,11 +60,7 @@ const Explore = () => {
             myLocation.updateLocation(lastArea[0], lastArea[1])
             console.log("not that way")
             setBlockedPath("your path is blocked")
-        }
-
-        
-        
-        
+        }    
         setMyLocation(myLocation)
         setArea(myLocation.currentArea)
         setCount(count + 1)  
