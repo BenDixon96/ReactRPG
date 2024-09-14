@@ -7,25 +7,22 @@ import Area from '../../Data/Nav_class/area';
 
 
 const Explore = () => {
-   
-    const [count, setCount] = useState(0)
     const [myLocation, setMyLocation] = useState(new currentLocation(0, 0))
     const [area, setArea] = useState(null)
     const [blockedPath, setBlockedPath] = useState(null)
     const [areaItems, setAreaItems] = useState(null)
-    const [levelAreas, setLevelAreas] = useState(null)
 
+    const [levelAreas, setLevelAreas] = useState(null)
     useEffect(() => {
         const storedAreas = window.localStorage.getItem("areas");
         if(storedAreas){
             const deserializedAreas = JSON.parse(storedAreas);
-            
             const levelAreas = deserializedAreas.map(area => new Area(area.id, area.xAxis, area.yAxis, area.name, area.items))
             setLevelAreas(levelAreas)
             levelAreas.map((x) => myLocation.loadArea(x))
             setArea(myLocation.currentArea)
         }
-       
+    
     }, []); 
     
 
@@ -37,17 +34,15 @@ const Explore = () => {
         myLocation.move(direction, value)
         levelAreas.map((x) => myLocation.loadArea(x))
         const canMove = levelAreas.map((x) => myLocation.loadArea(x))
-     
+        console.log("can Move is:", canMove)
         if (canMove.includes(true)){
             setMyLocation(myLocation)
             setArea(myLocation.currentArea)
-            setCount(count + 1) 
             setBlockedPath(null)
+
             if(area.items){
                 if(area.items.length > 0){
                     setAreaItems(area.items)
-                    
-                   
     
                 }
     
@@ -60,10 +55,9 @@ const Explore = () => {
             myLocation.updateLocation(lastArea[0], lastArea[1])
             console.log("not that way")
             setBlockedPath("your path is blocked")
-        }    
+        }   
         setMyLocation(myLocation)
-        setArea(myLocation.currentArea)
-        setCount(count + 1)  
+        setArea(myLocation.currentArea) 
     }
 
     

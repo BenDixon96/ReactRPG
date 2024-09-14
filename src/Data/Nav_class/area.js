@@ -1,11 +1,11 @@
 
 class Area{
-    constructor(id, x, y, name, items = null){
+    constructor(id, x, y, name, items = null, explored = false){
         this.id = id
         this.xAxis = x
         this.yAxis = y
         this.name = name
-        this.explored = false
+        this.explored = explored
         this.items = items
         //this.isLooted = False
 

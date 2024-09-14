@@ -13,12 +13,8 @@ class currentLocation {
     move(direction, movement){
         
         if(direction === "S"){
-            
-            console.log(this.yAxis)
             this.yAxis -= 1
             console.log('south')
-            console.log(this.yAxis)
-            console.log(movement)  
         }
         else if( direction === "N"){
             console.log("north")
@@ -37,10 +33,14 @@ class currentLocation {
         loadArea(area){
             if(area.xAxis === this.xAxis && this.yAxis === area.yAxis){
                 this.currentArea = area
-                area.explored = true
-                console.log("new area")
-                console.log(area.name)
-                console.log()
+                
+                if(area.explored === false){
+                    console.log("new area")
+                    area.explored = true
+
+                }
+               
+               
                 return true
             }
             else{
