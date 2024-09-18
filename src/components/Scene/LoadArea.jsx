@@ -70,7 +70,7 @@ const LoadArea = (props) => {
       
           {area && areaItems && areaItems.length > 0 && (
             <div>
-                {areaItems.map(item =>  <button onClick={() => handleClick(item)} key={item.id}>{item.name} x {item.amount}</button>)}
+                {areaItems.map(item =>  <button onClick={() => handleClick(item)} key={item.id}>{item.name} x {item.amount}{item.weapon}</button>)}
                 </div>
           )}
       
